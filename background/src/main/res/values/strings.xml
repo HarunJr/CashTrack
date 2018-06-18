@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Background</string>
+    <string name="no_internet_message">Internet NOT Connected</string>
+</resources>

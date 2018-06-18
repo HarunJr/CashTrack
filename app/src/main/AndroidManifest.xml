@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.harun.android.cashtrack">
+
+    <application
+        android:name="com.example.android.background.infrastructure.CashTrackApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
+        <provider
+            android:name="com.example.android.modellibrary.data.CashTrackProvider"
+            android:authorities="@string/content_authority"
+            android:exported="true"
+            android:syncable="true"
+            tools:ignore="ExportedContentProvider" />
+
+        <activity android:name="com.example.android.background.BaseActivity" />
+
+        <activity android:name=".activities.MainActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.AddVehicleActivity"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <receiver android:name=".CashTrackWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/cash_track_widget_info" />
+        </receiver>
+
+        <service android:name=".CashTrackService" />
+
+        <service
+            android:name=".ListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+    </application>
+
+</manifest>

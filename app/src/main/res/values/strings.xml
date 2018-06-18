@@ -1,0 +1,29 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">CashTrack</string>
+    <string name="content_authority">com.harun.android.cashtrack</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vehicle_hint_label">KBG 001A</string>
+    <string name="transaction_hint_description">Collection</string>
+    <string name="transaction_date">now</string>
+    <string name="collection">2400</string>
+    <string name="expense">-300</string>
+    <string name="add_vehicle">Add Vehicle</string>
+    <string name="vehicle_reg">Registration:</string>
+    <string name="vehicle_reg_hint">KAA</string>
+    <string name="vehicle_make">Make:</string>
+    <string name="vehicle_make_hint">ISUZU</string>
+    <string name="vehicle_model">Model:</string>
+    <string name="vehicle_model_hint">FRR 333L</string>
+    <string name="vehicle_man_year">Man Year:</string>
+    <string name="vehicle_year_hint">2008</string>
+    <string name="label_pass_cap">Passenger cap:</string>
+    <string name="passengers_hint">41</string>
+    <string name="create_vehicle_button_label">Add Vehicle</string>
+    <string name="vehicle_reg_hint_end">123B</string>
+
+    <string name="vehicle_list_title">Vehicles</string>
+    <string name="error_loading_items">Error Loading Transactions</string>
+
+</resources>

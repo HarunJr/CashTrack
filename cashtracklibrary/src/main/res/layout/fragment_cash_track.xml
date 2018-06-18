@@ -1,0 +1,96 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CashTrackFragment">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerView_cashTrack"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:clipToPadding="false"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+
+        <!--<include-->
+        <!--android:id="@+id/cash_track_toolbar"-->
+        <!--layout="@layout/collapsing_toolbar"-->
+        <!--app:layout_anchor="@id/coordinator" />-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<include-->
+        <!--android:id="@+id/chat_bar"-->
+        <!--layout="@layout/chat_edit_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--<include-->
+        <!--android:id="@+id/keyboard_view"-->
+        <!--layout="@layout/keyboard_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="gone" />-->
+        <!--</LinearLayout>-->
+
+
+        <!--Constraintlayout so that the recyclerview is always above the chat bar-->
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:layout_behavior="com.example.android.cashtracklibrary.FixScrollingFooterBehavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_cashTrack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toTopOf="@+id/inputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <include
+                    android:id="@+id/chat_bar"
+                    layout="@layout/chat_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/keyboard_view"
+                    layout="@layout/keyboard_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            android:id="@+id/cash_track_toolbar"
+            layout="@layout/collapsing_toolbar"
+            app:layout_anchor="@id/coordinator" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!--https://blog.sendbird.com/android-chat-tutorial-building-a-messaging-ui-->
+</layout>

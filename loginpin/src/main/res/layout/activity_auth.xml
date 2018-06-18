@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.harun.android.loginpin.AuthActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/login_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/fragment_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="loginpin.AuthActivity"
+            tools:ignore="MergeRootFrame" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

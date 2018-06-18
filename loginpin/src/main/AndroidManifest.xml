@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.harun.android.loginpin">
+
+    <application>
+        <activity android:name="com.harun.android.loginpin.AuthActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <!--This will resize your components to "best fit" android:windowSoftInputMode="adjustResize"-->
+    </application>
+
+</manifest>

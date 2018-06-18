@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#595959</color>
+    <color name="colorPrimaryDark">#070707</color>
+    <color name="colorPrimary">#303030</color>
+
+    <!--https://medium.com/@magdamiu/android-transparent-colors-a2d55a9b4e66-->
+    <!--min 50% opacity-->
+    <color name="colorPrimaryText">#59FFFFFF</color>
+    <!--min 35% opacity-->
+    <color name="colorPrimaryTextLarge">#80FFFFFF</color>
+
+    <!--min 72% opacity-->
+    <color name="colorPrimaryLightText">#B3FFFFFF</color>
+    <!--min 49% opacity-->
+    <color name="colorPrimaryLightTextLarge">@color/colorPrimaryText</color>
+
+    <!--min 45% opacity-->
+    <color name="colorPrimaryDarkText">#73FFFFFF</color>
+    <!--min 34% opacity-->
+    <color name="colorPrimaryDarkTextLarge">@color/colorPrimaryTextLarge</color>
+
+    <color name="colorAccentLight">#ffff52</color>
+    <color name="colorAccentDark">#c7a600</color>
+    <color name="colorAccent">#FFD700</color>
+
+    <!--min 42% opacity-->
+    <color name="colorAccentLightTextLarge">#73000000</color>
+    <!--min 54% opacity-->
+    <color name="colorAccentLightText">#8A000000</color>
+
+    <!--min 44% opacity-->
+    <color name="colorAccentTextLarge">#70000000</color>
+    <!--min 56% opacity-->
+    <color name="colorAccentText">#8F000000</color>
+
+    <!--min 48% opacity-->
+    <color name="colorAccentDarkTextLarge">#7A000000</color>
+    <!--min 63% opacity-->
+    <color name="colorAccentDarkText">#A1000000</color>
+
+</resources>

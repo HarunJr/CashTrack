@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CashTrack.iml" filepath="$PROJECT_DIR$/CashTrack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/background/background.iml" filepath="$PROJECT_DIR$/background/background.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cashtracklibrary/cashtracklibrary.iml" filepath="$PROJECT_DIR$/cashtracklibrary/cashtracklibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginpin/loginpin.iml" filepath="$PROJECT_DIR$/loginpin/loginpin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modellibrary/modellibrary.iml" filepath="$PROJECT_DIR$/modellibrary/modellibrary.iml" />
+    </modules>
+  </component>
+</project>

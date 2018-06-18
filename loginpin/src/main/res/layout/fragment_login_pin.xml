@@ -1,0 +1,62 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.harun.android.loginpin.Fragments.LoginPINFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/welcome_text"
+            layout="@layout/welcome"
+            android:layout_marginTop="@dimen/welcome_margin_top"
+            android:layout_marginEnd="@dimen/material_space"
+            android:layout_marginStart="@dimen/material_space"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/pin_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/label_margin_bottom"
+            android:layout_marginEnd="@dimen/material_space"
+            android:layout_marginStart="@dimen/material_space"
+            android:gravity="center"
+            android:text="@string/enter_pin_label"
+            android:textColor="@color/colorAccentLightText"
+            android:textSize="@dimen/material_text_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/indicator_view"
+            layout="@layout/pin_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/welcome_margin_bottom"
+            android:layout_marginEnd="@dimen/material_space"
+            android:layout_marginStart="@dimen/material_space"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/keyboard"
+            layout="@layout/keyboard_view_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/material_space"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

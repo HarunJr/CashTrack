@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- A horizontal line between the chatbox and RecyclerView -->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/colorAccentDark"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_chatbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/layout_chatbox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="48dp"
+        android:layout_marginBottom="@dimen/material_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_positive"
+            android:textSize="14sp"
+            android:background="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorAccentLightText"
+            android:src="@drawable/ic_add_black_24dp"
+            android:contentDescription="@string/string_positive"
+            android:tint="@color/colorAccentLightText"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edittext_chatbox"
+            android:hint="@string/string_collection_hint"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="0dp"
+            android:layout_weight="18"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:inputType="number"
+            android:textSize="@dimen/material_text_headline"
+            android:textColor="@color/colorAccentLightText"/>
+
+        <ImageButton
+            android:id="@+id/button_chatbox_send"
+            android:textSize="@dimen/material_text_body1"
+            android:background="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorAccentLightText"
+            android:tint="@color/colorAccentLightText"
+            android:src="@drawable/ic_send_black_24dp"
+            android:contentDescription="@string/string_send" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+</layout>

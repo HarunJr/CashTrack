@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#070707</color>
+    <color name="colorPrimaryLight">#595959</color>
+    <color name="colorPrimary">#303030</color>
+
+    <!--min 72% opacity-->
+    <color name="colorPrimaryLightText">#B3FFFFFF</color>
+
+    <color name="colorAccentLight">#ffff52</color>
+    <color name="colorAccentDark">#c7a600</color>
+    <color name="colorAccent">#FFD700</color>
+
+    <!--min 42% opacity-->
+    <color name="colorAccentLightTextLarge">#73000000</color>
+    <!--min 54% opacity-->
+    <color name="colorAccentLightText">#8A000000</color>
+
+</resources>

@@ -1,0 +1,17 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">CashTrackLibrary</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vehicle_hint_label">Collection</string>
+    <string name="transaction_date">now</string>
+    <string name="amount">5000</string>
+
+    <string name="format_amount"><xliff:g id="amount">%1$.2f</xliff:g></string>
+    <string name="format_expense">-<xliff:g id="amount"> %1$.2f</xliff:g></string>
+    <string name="string_send">SEND</string>
+    <string name="string_enter_message">Enter message</string>
+    <string name="string_positive">positive</string>
+    <string name="string_collection_hint">+0.0</string>
+    <string name="string_expense_hint">-0.0</string>
+</resources>

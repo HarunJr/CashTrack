@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/pin_indicator_1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_border"
+            android:freezesText="true"
+            android:gravity="center_horizontal"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/pin_indicator_2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_border"
+            android:freezesText="true"
+            android:gravity="center_horizontal"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            app:layout_constraintStart_toEndOf="@+id/pin_indicator_1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/pin_indicator_3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_border"
+            android:freezesText="true"
+            android:gravity="center_horizontal"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            app:layout_constraintStart_toEndOf="@+id/pin_indicator_2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/pin_indicator_4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_border"
+            android:freezesText="true"
+            android:gravity="center_horizontal"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            app:layout_constraintStart_toEndOf="@+id/pin_indicator_3"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="LabelFor" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

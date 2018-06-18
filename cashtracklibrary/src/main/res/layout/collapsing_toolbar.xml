@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
+
+        <include
+            android:id="@+id/cashTrack_activity_toolbar"
+            layout="@layout/tool_bar"
+            app:elevation="0dp"/>
+
+        <include
+            android:id="@+id/header_cardView"
+            layout="@layout/header_transaction" />
+
+    </android.support.design.widget.AppBarLayout>
+</layout>
