@@ -2,7 +2,6 @@ package com.harun.android.loginpin.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;

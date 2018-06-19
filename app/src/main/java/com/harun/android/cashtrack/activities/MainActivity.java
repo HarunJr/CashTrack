@@ -4,12 +4,10 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.example.android.background.BaseActivity;

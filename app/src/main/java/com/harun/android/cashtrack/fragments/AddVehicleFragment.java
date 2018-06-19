@@ -24,16 +24,6 @@ import com.example.android.modellibrary.model.Vehicle;
 import com.harun.android.cashtrack.R;
 import com.harun.android.cashtrack.databinding.FragmentAddVehicleBinding;
 
-//import com.example.android.model.DateHelper;
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnAddVehicleListener} interface
- * to handle interaction events.
- * Use the {@link AddVehicleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddVehicleFragment extends Fragment {
     private static final String LOG_TAG = AddVehicleFragment.class.getSimpleName();
     // TODO: Rename parameter arguments, choose names that match
@@ -47,24 +37,6 @@ public class AddVehicleFragment extends Fragment {
     private OnAddVehicleListener mListener;
     private EditText mRegInput, mRegInputEnd, makeInput, modelInput, mYomInput, mPassCapInput;
     private String regEnd;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddVehicleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AddVehicleFragment newInstance(String param1, String param2) {
-        AddVehicleFragment fragment = new AddVehicleFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

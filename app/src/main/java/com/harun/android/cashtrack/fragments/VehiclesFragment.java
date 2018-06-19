@@ -18,13 +18,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android.modellibrary.data.LocalStore;
 import com.example.android.modellibrary.model.Vehicle;
 import com.harun.android.cashtrack.R;
 import com.harun.android.cashtrack.VehiclesAdapter;
 import com.harun.android.cashtrack.databinding.FragmentVehiclesBinding;
 
-import static com.example.android.modellibrary.SystemQuery.COL_VEHICLE_ID;
 import static com.example.android.modellibrary.SystemQuery.VEHICLE_COLUMN;
 import static com.example.android.modellibrary.data.CashTrackContract.VehicleEntry;
 
@@ -47,15 +45,6 @@ public class VehiclesFragment extends Fragment implements LoaderManager.LoaderCa
     int mScrollPosition = RecyclerView.NO_POSITION;
 
     private OnVehicleInteractionListener mListener;
-
-    public VehiclesFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

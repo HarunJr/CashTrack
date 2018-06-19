@@ -6,12 +6,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.android.background.BaseActivity;
 import com.example.android.background.sync.CashTrackSyncUtils;
 import com.example.android.modellibrary.CashTrackResultReceiver;
-import com.example.android.modellibrary.Utilities;
 import com.example.android.modellibrary.data.LocalStore;
 import com.example.android.modellibrary.model.Vehicle;
 import com.harun.android.cashtrack.R;
