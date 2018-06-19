@@ -14,4 +14,7 @@
     <string name="string_positive">positive</string>
     <string name="string_collection_hint">+0.0</string>
     <string name="string_expense_hint">-0.0</string>
+    <string name="sending_amount_message">Sending</string>
+    <string name="cancelled_transaction">transaction cancelled!</string>
+    <string name="empty_transaction_entry">"Enter Transaction Amount To Continue."</string>
 </resources>

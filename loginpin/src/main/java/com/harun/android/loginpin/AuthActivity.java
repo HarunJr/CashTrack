@@ -125,7 +125,9 @@ public class AuthActivity extends BaseActivity implements LoginPINFragment.OnLoc
     public void onMobileNumberEntered(User user) {
         Log.w(LOG_TAG, "onMobileNumberEntered: " + user.getPhoneNo());
         this.user = user;
-        startPhoneNumberVerification(this.user);
+        //TODO: restore after testing
+        displayLoginPinFragment(user);
+//        startPhoneNumberVerification(this.user);
     }
 
     private void getCallback(){

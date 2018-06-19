@@ -147,23 +147,23 @@ public class MainActivity extends BaseActivity implements VehiclesFragment.OnVeh
                 .putExtra(VEHICLE_KEY, vehicle), bundle);
     }
 
-    @Override
-    public void onBackPressed() {
-        //do nothing
-        if (exit) {
-            finish(); // finish activity
-        } else {
-            Toast.makeText(this, "Press Back again to Exit.",
-                    Toast.LENGTH_SHORT).show();
-            exit = true;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        //do nothing
+//        if (exit) {
+//            finish(); // finish activity
+//        } else {
+//            Toast.makeText(this, getString(R.string.back_press_message),
+//                    Toast.LENGTH_SHORT).show();
+//            exit = true;
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    exit = false;
+//                }
+//            }, 3 * 1000);
+//        }
+//    }
 
     //Test crashlytics
     private void testFatalError() {

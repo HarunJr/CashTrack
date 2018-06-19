@@ -10,39 +10,6 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
-        <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/recyclerView_cashTrack"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:clipToPadding="false"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
-
-        <!--<include-->
-        <!--android:id="@+id/cash_track_toolbar"-->
-        <!--layout="@layout/collapsing_toolbar"-->
-        <!--app:layout_anchor="@id/coordinator" />-->
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<include-->
-        <!--android:id="@+id/chat_bar"-->
-        <!--layout="@layout/chat_edit_text"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
-
-        <!--<include-->
-        <!--android:id="@+id/keyboard_view"-->
-        <!--layout="@layout/keyboard_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:visibility="gone" />-->
-        <!--</LinearLayout>-->
-
-
         <!--Constraintlayout so that the recyclerview is always above the chat bar-->
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

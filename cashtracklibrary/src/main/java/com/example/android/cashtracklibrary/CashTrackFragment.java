@@ -2,6 +2,7 @@ package com.example.android.cashtracklibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.inputmethodservice.KeyboardView;
@@ -51,6 +52,8 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final int TRANSACTION_LOADER = 1;
+    private static final String KEY_AMOUNT = "key_amount";
+    private static final String KEY_AMOUNT_TAG = "key_amount_tag";
 
     // TODO: Rename and change types of parameters
     private Vehicle vehicle;
@@ -66,6 +69,9 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
     TransactionsAdapter transactionsAdapter;
     ImageButton collectionButton;
     long timestamp = System.currentTimeMillis();
+
+    String editTextString;
+    String amountTag;
 
     public CashTrackFragment() {
         // Required empty public constructor
@@ -104,10 +110,11 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
         coordinatorLayout = cashTrackBinding.coordinator;
         editText = cashTrackBinding.chatBar.edittextChatbox;
         collectionButton = cashTrackBinding.chatBar.buttonPositive;
-        collectionButton.setTag(INCOME_TAG);
         ImageButton sendButton = cashTrackBinding.chatBar.buttonChatboxSend;
 
         initViews();
+
+        //TODO: Check if below methods can work together to handle all button clicks.
 
         NumPad mNumPad = initNumPad();
         mNumPad.registerEditText(editText);
@@ -124,16 +131,86 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
         recyclerView.setAdapter(transactionsAdapter);
 //        recyclerView.scrollToPosition();
 
-        //TODO: Check if below methods can work together to handle all button clicks.
-        setAmountTag();
-        sendButtonClicked(sendButton);
-
         Activity activity = getActivity();
         assert activity != null;
         ((CashTrackActivity) activity).setOnBackPressedListener(new BaseBackPressedListener(getActivity(), mNumPad));
 
+        if (savedInstanceState != null && savedInstanceState.containsKey(KEY_AMOUNT)) {
+            editTextString = savedInstanceState.getString(KEY_AMOUNT);
+            amountTag = savedInstanceState.getString(KEY_AMOUNT_TAG);
+            collectionButton.setTag(amountTag);
+            setSavedTag();
+            editText.setText(editTextString);
+            Log.w(LOG_TAG, "savedInstanceState: " + amountTag +" collectionButton "+ collectionButton.getTag());
+//            clickAmountButton();
+        }else {
+            setAmountTag();
+        }
+        clickAmountButton();
+        sendButtonClicked(sendButton);
+
         return cashTrackBinding.getRoot();
     }
+
+    private void setSavedTag() {
+        switch (amountTag) {
+            case INCOME_TAG:
+                collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
+                editText.setHint(R.string.string_collection_hint);
+                collectionButton.setTag(INCOME_TAG);
+                Log.w(LOG_TAG, "INCOME_TAG: ");
+                break;
+            case EXPENSE_TAG:
+
+                collectionButton.setImageResource(R.drawable.ic_remove_black_24dp);
+                editText.setHint(R.string.string_expense_hint);
+                collectionButton.setTag(EXPENSE_TAG);
+                Log.w(LOG_TAG, "EXPENSE_TAG: ");
+                break;
+            default:
+                collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
+                editText.setHint(R.string.string_collection_hint);
+                collectionButton.setTag(INCOME_TAG);
+                Log.w(LOG_TAG, "DEFAULT_TAG: ");
+        }
+    }
+
+    private void setAmountTag(){
+        amountTag = String.valueOf(collectionButton.getTag());
+        switch (amountTag) {
+            case INCOME_TAG:
+                collectionButton.setImageResource(R.drawable.ic_remove_black_24dp);
+                editText.setHint(R.string.string_expense_hint);
+                collectionButton.setTag(EXPENSE_TAG);
+                Log.w(LOG_TAG, "EXPENSE_TAG: ");
+                break;
+            case EXPENSE_TAG:
+                collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
+                editText.setHint(R.string.string_collection_hint);
+                collectionButton.setTag(INCOME_TAG);
+                Log.w(LOG_TAG, "INCOME_TAG: ");
+                break;
+            default:
+                collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
+                editText.setHint(R.string.string_collection_hint);
+                collectionButton.setTag(INCOME_TAG);
+                Log.w(LOG_TAG, "DEFAULT_TAG: ");
+        }
+//        if (collectionButton.getTag().equals(INCOME_TAG)) {
+//            collectionButton.setImageResource(R.drawable.ic_remove_black_24dp);
+//            editText.setHint(R.string.string_expense_hint);
+//            collectionButton.setTag(EXPENSE_TAG);
+//            Log.w(LOG_TAG, "EXPENSE_TAG: ");
+//        } else if (collectionButton.getTag().equals(EXPENSE_TAG)) {
+//            collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
+//            editText.setHint(R.string.string_collection_hint);
+//            collectionButton.setTag(INCOME_TAG);
+//            Log.w(LOG_TAG, "INCOME_TAG: ");
+//        } else {
+//            Log.w(LOG_TAG, "Oops!!: ");
+//        }
+    }
+
 
     public Toolbar getToolbar() {
         return (Toolbar) cashTrackBinding.cashTrackToolbar.cashTrackActivityToolbar;
@@ -162,14 +239,14 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getLoaderManager().initLoader(TRANSACTION_LOADER, null, this);
-    }
+   }
 
     private void sendButtonClicked(ImageButton sendButton) {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editTextString = editText.getText().toString().trim();
                 String description;
-                String editTextString = editText.getText().toString().trim();
                 if (!editTextString.isEmpty() && !editTextString.equals("0") && !editTextString.equals("00") && !editTextString.equals("000")) {
                     if (collectionButton.getTag().equals(INCOME_TAG)) {
 
@@ -181,10 +258,25 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
                         setTransactionData(description, EXPENSE_TAG);
                     }
                 } else {
-                    Toast.makeText(mContext, "Enter Transaction Amount To Continue.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, getString(R.string.empty_transaction_entry), Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        editTextString = editText.getText().toString().trim();
+        amountTag = String.valueOf(collectionButton.getTag());
+        Log.w(LOG_TAG, "onSaveInstanceState: " + editTextString);
+        outState.putString(KEY_AMOUNT, editTextString);
+        outState.putString(KEY_AMOUNT_TAG, amountTag);
+        super.onSaveInstanceState(outState);
     }
 
     private void setTransactionData(String description, String amountTag) {
@@ -192,7 +284,7 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
         String createdAt = String.valueOf(DateHelper.getFormattedDate(System.currentTimeMillis()));
         String sync = "0";
 
-        if (amountTag.equals(EXPENSE_TAG)){
+        if (amountTag.equals(EXPENSE_TAG)) {
             amount = -amount;
         }
 
@@ -202,23 +294,11 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
         Log.w(LOG_TAG, "AMOUNT_TAG: " + vehicle.get_id() + " " + transaction.getDescription() + " " + transaction.getAmount() + " " + transaction.getType());
     }
 
-    private void setAmountTag() {
+    private void clickAmountButton() {
         collectionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (collectionButton.getTag().equals(INCOME_TAG)) {
-                    collectionButton.setImageResource(R.drawable.ic_remove_black_24dp);
-                    editText.setHint(R.string.string_expense_hint);
-                    collectionButton.setTag(EXPENSE_TAG);
-                    Log.w(LOG_TAG, "EXPENSE_TAG: ");
-                } else if (collectionButton.getTag().equals(EXPENSE_TAG)) {
-                    collectionButton.setImageResource(R.drawable.ic_add_black_24dp);
-                    editText.setHint(R.string.string_collection_hint);
-                    collectionButton.setTag(INCOME_TAG);
-                    Log.w(LOG_TAG, "INCOME_TAG: ");
-                } else {
-                    Log.w(LOG_TAG, "Oops!!: ");
-                }
+                setAmountTag();
             }
         });
     }
@@ -303,14 +383,14 @@ public class CashTrackFragment extends Fragment implements LoaderManager.LoaderC
         }
     }
 
-    private void getHeaderValues(){
+    private void getHeaderValues() {
         double dailyVehicleCollection;
         double dailyVehicleExpense;
         double difference;
 
         LocalStore localStore = new LocalStore(getActivityCast());
         vehicle = localStore.getVehicleDataFromTransaction(vehicle.get_id());
-        Log.w(LOG_TAG, "onLoadFinished: getVehicleById: "+ vehicle.get_id()+ " " + vehicle.getRegistration() + ", " + vehicle.getCollection());
+        Log.w(LOG_TAG, "onLoadFinished: getVehicleById: " + vehicle.get_id() + " " + vehicle.getRegistration() + ", " + vehicle.getCollection());
         localStore.updateVehiclesTable(vehicle);
 
         dailyVehicleCollection = vehicle.getCollection();

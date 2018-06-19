@@ -50,7 +50,11 @@ public class CashTrackActivity extends BaseActivity implements OnCashTrackFragme
         }
 
         getDataFromMainActivity();
-        displayCashTrackFragment();
+        if (savedInstanceState == null){
+            displayCashTrackFragment();
+            Log.w(LOG_TAG, "savedInstanceState NULL: ");
+
+        }
     }
 
     private void getDataFromMainActivity() {
@@ -104,7 +108,7 @@ public class CashTrackActivity extends BaseActivity implements OnCashTrackFragme
     public void onCashTrackFragmentInteraction(final Transaction transaction, CoordinatorLayout coordinatorLayout) {
         Log.w(LOG_TAG, "onCashTrackFragmentInteraction: " + transaction.getAmount());
         final Context context = getApplicationContext();
-        message = "Send " + transaction.getAmount();
+        message = getString(R.string.sending_amount_message) + transaction.getAmount();
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG).addCallback(new Snackbar.Callback() {
 
             @Override
@@ -112,7 +116,7 @@ public class CashTrackActivity extends BaseActivity implements OnCashTrackFragme
                 LocalStore localStore = new LocalStore(context);
                 switch (event) {
                     case Snackbar.Callback.DISMISS_EVENT_SWIPE:
-                        message = "Sending " + transaction.getAmount();
+                        message = getString(R.string.sending_amount_message) + transaction.getAmount();
                         if (localStore.storeTransactionData(transaction)) {
                             showToast(context, message);
                             CashTrackSyncUtils.syncTransactions(getBaseContext(), transaction);
@@ -121,13 +125,13 @@ public class CashTrackActivity extends BaseActivity implements OnCashTrackFragme
                         break;
                     case Snackbar.Callback.DISMISS_EVENT_ACTION:
                         Log.w(LOG_TAG, "DISMISS_EVENT_ACTION: ");
-                        message = "transaction cancelled!";
+                        message = getString(R.string.cancelled_transaction);
                         showToast(context, message);
                         break;
                     case Snackbar.Callback.DISMISS_EVENT_TIMEOUT:
                         //Post to server after 4000ms
                         Log.w(LOG_TAG, "DISMISS_EVENT_SWIPE: ");
-                        message = "Sending " + transaction.getAmount();
+                        message = getString(R.string.sending_amount_message) + transaction.getAmount();
                         if (localStore.storeTransactionData(transaction)) {
                             showToast(context, message);
                             CashTrackSyncUtils.syncTransactions(getBaseContext(), transaction);

@@ -48,10 +48,6 @@ public class AddVehicleFragment extends Fragment {
     private EditText mRegInput, mRegInputEnd, makeInput, modelInput, mYomInput, mPassCapInput;
     private String regEnd;
 
-    public AddVehicleFragment() {
-        // Required empty public constructor
-    }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -68,11 +64,6 @@ public class AddVehicleFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override

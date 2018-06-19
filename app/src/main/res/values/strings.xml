@@ -25,5 +25,6 @@
 
     <string name="vehicle_list_title">Vehicles</string>
     <string name="error_loading_items">Error Loading Transactions</string>
+    <string name="back_press_message">Press Back again to Exit.</string>
 
 </resources>
