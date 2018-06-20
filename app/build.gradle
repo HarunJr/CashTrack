@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'harun'
             keyPassword 'keyStorePassword'
-            storeFile file('C:/Users/Harun/Programming/AndroidStudioProjects/CashTrack/keystore.jks')
+            storeFile file('../keystore.jks')
             storePassword 'keyStorePassword'
         }
     }
