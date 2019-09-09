@@ -18,3 +18,9 @@ As part of my Udacity Capstone Project - Android Developer Nanodegree, I design 
 *	Calculate balance per vehicle
 *	PIN authentication
 *	Periodic **notification** reminders
+
+### Preview
+
+<p align="center">
+<img src="CashTrack-GIF.gif" width="350">
+</p>
